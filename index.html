@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aryane Muniz · Data & AI</title>
+<meta name="description" content="Aryane Muniz — data engineering and AI solutions for media teams: pipelines, data quality, data catalogs and AI agents.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --panel:#140d0f; --panel-2:#3a0a14; --red:#E0213A; --red-soft:#ff5a6e; --red-deep:#8f1424;
+  --bg:#0b0809; --card:#151011; --ink:#f3ecec; --muted:#b3a3a5; --line:#2b2023;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;
+  --body:'Inter',system-ui,-apple-system,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* language toggle: show only the active language */
+html[lang="en"] [lang="pt"], html[lang="pt"] [lang="en"]{display:none !important}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:10;background:rgba(11,8,9,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);color:var(--ink)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:var(--display);font-weight:600;font-size:18px;text-decoration:none}
+.logo b{color:var(--red)}
+.nav{display:flex;gap:22px;align-items:center;font-size:15px}
+.nav a{text-decoration:none;opacity:.85}
+.nav a:hover{opacity:1;color:var(--red)}
+.lang{display:flex;border:1.5px solid rgba(244,244,244,.4);border-radius:99px;overflow:hidden}
+.lang button{background:none;border:0;color:#F4F4F4;font:600 13px var(--body);padding:5px 11px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--red);color:#fff}
+
+/* hero */
+.hero{background:radial-gradient(ellipse at 85% 0%,#5a0c1a 0,#2a0710 30%,var(--bg) 70%);color:#F4F4F4;padding:88px 0 96px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-160px;top:-160px;width:520px;height:520px;border-radius:50%;border:1px solid rgba(224,33,58,.45);box-shadow:0 0 0 60px rgba(224,33,58,.06),0 0 0 140px rgba(224,33,58,.04)}
+.hero::before{content:"";position:absolute;right:120px;bottom:70px;width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:0 0 24px 6px rgba(224,33,58,.6)}
+.eyebrow{font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:600}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(38px,6vw,64px);line-height:1.05;margin:14px 0 22px;max-width:760px;position:relative;z-index:1}
+h1 em{font-style:normal;color:var(--red)}
+.lead{font-size:20px;max-width:620px;opacity:.92;position:relative;z-index:1}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;position:relative;z-index:1}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:12px 22px;border-radius:99px;font-size:16px}
+.btn.primary{background:var(--red);color:#fff}
+.btn.ghost{border:1.5px solid rgba(244,244,244,.5);color:#F4F4F4}
+.btn:hover{filter:brightness(1.08)}
+
+/* sections */
+section{padding:80px 0}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(28px,4vw,38px);margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 40px;max-width:640px}
+.kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:8px}
+
+/* about */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:48px}
+.about p{margin:0 0 16px}
+.pill-list{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1.5px solid var(--line);background:var(--card);border-radius:99px;padding:6px 14px;font-size:14px;font-weight:500}
+.box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+.box h3{font-family:var(--display);font-size:17px;margin:0 0 14px}
+.clients{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.clients span{font-family:var(--display);font-weight:600;font-size:16px}
+.clients span+span::before{content:"·";margin-right:10px;color:var(--red)}
+
+/* cases */
+.cases{display:grid;gap:24px}
+.case{background:var(--card);border:1px solid var(--line);border-radius:22px;display:grid;grid-template-columns:1fr 1.15fr;overflow:hidden}
+.case .media{background:linear-gradient(160deg,#3a0a14,#140d0f 70%);color:#F4F4F4;display:flex;flex-direction:column;justify-content:space-between;padding:28px;min-height:280px;position:relative;overflow:hidden}
+.case .media .num{font-family:var(--display);font-size:64px;font-weight:700;color:var(--red);line-height:1}
+.case .media .ph{font-size:13px;opacity:.6;border:1px dashed rgba(244,244,244,.4);border-radius:10px;padding:10px 12px}
+.case .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.case .body{padding:30px 32px}
+.case h3{font-family:var(--display);font-size:22px;line-height:1.2;margin:4px 0 16px}
+.case dl{margin:0 0 18px;display:grid;gap:10px}
+.case dt{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.case dd{margin:2px 0 0}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;background:rgba(224,33,58,.14);color:var(--red-soft);border-radius:99px;padding:5px 12px;margin-bottom:16px}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red)}
+.status.wip{background:rgba(179,163,165,.12);color:var(--muted)}.status.wip::before{background:var(--muted);box-shadow:none}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:13px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:3px 9px}
+
+/* experience */
+.timeline{display:grid;gap:18px}
+.job{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--line)}
+.job .when{color:var(--muted);font-size:15px}
+.job h3{font-family:var(--display);font-size:19px;margin:0 0 6px}
+.job p{margin:0;color:var(--muted)}
+
+/* footer */
+footer{background:linear-gradient(180deg,var(--bg),#2a0710);border-top:1px solid var(--line);color:#F4F4F4;padding:64px 0}
+footer h2{color:#F4F4F4}
+footer .cta{margin-top:20px}
+.small{font-size:13px;opacity:.6;margin-top:40px}
+
+@media (max-width:820px){
+  .nav a{display:none}
+  .about{grid-template-columns:1fr}
+  .case{grid-template-columns:1fr}
+  .case .media{min-height:180px}
+  .job{grid-template-columns:1fr;gap:4px}
+  .hero::after{width:300px;height:300px;right:-150px;top:-150px}
+  .eyebrow{position:relative;z-index:1}
+  .hero::before{display:none}
+  section{padding:60px 0}
+}
+@media (max-width:480px){ .wrap{padding:0 16px} .case .body{padding:24px 20px} }
+
+
+/* EDUCATION */
+.edu{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.edu .box h3{margin-bottom:6px}
+.edu .org{color:var(--red-soft);font-weight:600;font-size:15px}
+.edu .when{color:var(--muted);font-size:14px;margin:2px 0 12px}
+.edu ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px}
+.edu li{margin:3px 0}
+.lvl{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding:8px 0;font-size:15px}
+.lvl:last-child{border-bottom:0}
+.lvl b{color:var(--ink);font-weight:600}
+.lvl span{color:var(--muted);text-align:right}
+@media (max-width:820px){ .edu{grid-template-columns:1fr} }
+
+/* MOTION */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.55}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes glow{0%,100%{opacity:.75}50%{opacity:1}}
+@keyframes blink{50%{opacity:0}}
+
+.hero .eyebrow,.hero h1,.hero .lead,.hero .cta{opacity:0;animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) forwards}
+.hero h1{animation-delay:.12s}.hero .lead{animation-delay:.26s}.hero .cta{animation-delay:.4s}
+.hero::after{animation:spinSlow 40s linear infinite, glow 6s ease-in-out infinite;border-top-color:rgba(255,90,110,.9)}
+.hero::before{animation:pulse 2.6s ease-in-out infinite, float 7s ease-in-out infinite}
+.hero h1 em{display:inline-block;animation:float 4s ease-in-out infinite}
+
+/* spotlight that follows the mouse in the hero */
+.hero .spot{position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px circle at var(--mx,70%) var(--my,30%),rgba(224,33,58,.18),transparent 60%);transition:background .1s}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* hover */
+.case{transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
+.case:hover{transform:translateY(-6px);border-color:rgba(224,33,58,.5);box-shadow:0 18px 50px -20px rgba(224,33,58,.45)}
+.case .media .num{transition:transform .5s ease,text-shadow .5s ease}
+.case:hover .media .num{transform:translateX(6px) scale(1.06);text-shadow:0 0 24px rgba(224,33,58,.7)}
+.pill,.tags span{transition:border-color .25s,color .25s,transform .25s}
+.pill:hover,.tags span:hover{border-color:var(--red);color:var(--red-soft);transform:translateY(-2px)}
+.btn{transition:transform .2s ease,filter .2s ease,box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary:hover{box-shadow:0 10px 30px -8px rgba(224,33,58,.7)}
+.logo b{display:inline-block;animation:blink 1.2s steps(1) infinite}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .hero .eyebrow,.hero h1,.hero .lead,.hero .cta,.reveal{opacity:1 !important;transform:none !important}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="#top">Aryane Muniz<b>.</b></a>
+    <nav class="nav">
+      <a href="#about"><span lang="en">About</span><span lang="pt">Sobre</span></a>
+      <a href="#cases"><span lang="en">Cases</span><span lang="pt">Cases</span></a>
+      <a href="#experience"><span lang="en">Experience</span><span lang="pt">Experiência</span></a>
+      <a href="#education"><span lang="en">Education</span><span lang="pt">Formação</span></a>
+      <a href="#contact"><span lang="en">Contact</span><span lang="pt">Contato</span></a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="spot"></div>
+  <div class="wrap">
+    <div class="eyebrow"><span lang="en">Data Engineering &amp; AI Solutions · WPP Media</span><span lang="pt">Engenharia de Dados &amp; Soluções de IA · WPP Media</span></div>
+    <h1><span lang="en">Data <em>+</em> AI for media teams</span><span lang="pt">Dados <em>+</em> IA para times de mídia</span></h1>
+    <p class="lead">
+      <span lang="en">I'm Aryane. I build tools that take manual work off people's plates: AI agents, data catalogs and data quality checks that flag issues before they reach the client.</span>
+      <span lang="pt">Sou a Aryane. Construo ferramentas que tiram trabalho manual das pessoas: agentes de IA, catálogos de dados e checagens de qualidade que avisam antes do problema chegar no cliente.</span>
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#cases"><span lang="en">See my cases</span><span lang="pt">Ver meus cases</span></a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/aryanemuniz-ai" target="_blank" rel="noopener">LinkedIn</a>
+      <!-- TROCAR: seu usuário do GitHub -->
+      <a class="btn ghost" href="https://github.com/AryaneMuniz" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <div class="kicker reveal"><span lang="en">About</span><span lang="pt">Sobre</span></div>
+      <h2><span lang="en">Between data and AI</span><span lang="pt">Na ponte entre dados e IA</span></h2>
+      <p>
+        <span lang="en">I'm the Data &amp; AI focal point for Hispanic Latin America media teams at WPP Media, also supporting Brazil. I started in BI, and today I work on data engineering (pipelines, modeling and data quality in BigQuery and Dataform) and on AI solutions built on top of that data.</span>
+        <span lang="pt">Sou ponto focal de Dados &amp; IA para os times de mídia da América Latina hispânica na WPP Media, e também apoio o Brasil. Comecei em BI e hoje trabalho com engenharia de dados (pipelines, modelagem e qualidade de dados em BigQuery e Dataform) e com soluções de IA construídas em cima desses dados.</span>
+      </p>
+      <p>
+        <span lang="en"><strong>How I work:</strong> I start from the team's pain point, ship a quick first version, test it with the people who'll use it, and only then scale. I'd rather say "I don't know, let me check" than deliver a number that doesn't add up.</span>
+        <span lang="pt"><strong>Como eu trabalho:</strong> começo pela dor do time, construo uma primeira versão rápida, testo com quem vai usar e só depois escalo. Prefiro dizer "não sei, vou verificar" a entregar um número que não confere.</span>
+      </p>
+    </div>
+    <div style="display:grid;gap:18px;align-content:start">
+      <div class="box reveal">
+        <h3><span lang="en">Tools</span><span lang="pt">Ferramentas</span></h3>
+        <div class="pill-list">
+          <span class="pill">SQL</span><span class="pill">BigQuery</span><span class="pill">Dataform</span>
+          <span class="pill">Copilot Studio</span><span class="pill">Power Automate</span><span class="pill">Claude</span>
+          <span class="pill">Looker Studio</span><span class="pill">Power BI</span><span class="pill">Git / GitHub</span>
+          <span class="pill">Excel / Sheets</span>
+        </div>
+      </div>
+      <div class="box reveal">
+        <h3><span lang="en">Clients I've worked with</span><span lang="pt">Clientes com quem trabalhei</span></h3>
+        <div class="clients"><span>Visa</span><span>Smart Fit</span><span>Natura &amp; Avon</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cases" style="padding-top:20px">
+  <div class="wrap">
+    <div class="kicker reveal">Cases</div>
+    <h2><span lang="en">What I've built</span><span lang="pt">O que eu construí</span></h2>
+    <p class="sub"><span lang="en">Each case: the problem, what I built and where it stands today.</span><span lang="pt">Cada case: o problema, o que eu construí e em que pé está hoje.</span></p>
+
+    <div class="cases">
+
+      <!-- CASE 1 -->
+      <article class="case reveal">
+        <div class="media">
+          <div class="num">01</div>
+          <!-- PRINT: troque o div abaixo por <img src="img/hub.png" alt="..."> -->
+          <div class="ph"><span lang="en">Screenshot coming soon</span><span lang="pt">Print em breve</span></div>
+        </div>
+        <div class="body">
+          <div class="status wip"><span lang="en">Being adopted by the official team hub</span><span lang="pt">Sendo incorporado ao Hub oficial do time</span></div>
+          <h3><span lang="en">Project Hub with AI assistant &amp; BigQuery catalog</span><span lang="pt">Hub com assistente de IA e catálogo do BigQuery</span></h3>
+          <dl>
+            <div><dt><span lang="en">Problem</span><span lang="pt">Problema</span></dt>
+              <dd><span lang="en">Finding where a piece of data lives in BigQuery usually meant asking someone.</span><span lang="pt">Descobrir onde um dado fica no BigQuery normalmente dependia de perguntar pra alguém.</span></dd></div>
+            <div><dt><span lang="en">What I built</span><span lang="pt">O que eu fiz</span></dt>
+              <dd><span lang="en">A workspace app with a navigable map of the data structure (datasets, tables, columns, metrics and glossary) and an integrated AI assistant that answers questions in context.</span><span lang="pt">Um app de trabalho com mapa navegável da estrutura de dados (datasets, tabelas, colunas, métricas e glossário) e um assistente de IA integrado que responde dúvidas com contexto.</span></dd></div>
+          </dl>
+          <div class="tags"><span>Generative AI</span><span>BigQuery</span><span>Data Cataloging</span><span>HTML/JS</span></div>
+        </div>
+      </article>
+
+      <!-- CASE 2 -->
+      <article class="case reveal">
+        <div class="media">
+          <div class="num">02</div>
+          <div class="ph"><span lang="en">Screenshot coming soon</span><span lang="pt">Print em breve</span></div>
+        </div>
+        <div class="body">
+          <div class="status"><span lang="en">Live in Microsoft Teams</span><span lang="pt">No ar no Microsoft Teams</span></div>
+          <h3><span lang="en">Dadinho, data FAQ agent</span><span lang="pt">Dadinho, agente de FAQ de dados</span></h3>
+          <dl>
+            <div><dt><span lang="en">Problem</span><span lang="pt">Problema</span></dt>
+              <dd><span lang="en">The same questions about media data sources kept landing on the data team.</span><span lang="pt">As mesmas dúvidas sobre as bases de mídia chegavam sempre no time de dados.</span></dd></div>
+            <div><dt><span lang="en">What I built</span><span lang="pt">O que eu fiz</span></dt>
+              <dd><span lang="en">A Copilot Studio agent the Natura &amp; Avon team calls in Teams. It uses a data catalog and a verified FAQ as knowledge, with rules to never make things up and to point to the right team when it doesn't know.</span><span lang="pt">Um agente no Copilot Studio que o time de Natura &amp; Avon chama no Teams. Usa um catálogo de dados e um FAQ verificado como conhecimento, com regras para nunca inventar e indicar o time certo quando não sabe.</span></dd></div>
+          </dl>
+          <div class="tags"><span>Copilot Studio</span><span>Generative AI</span><span>Prompt Engineering</span><span>Teams</span></div>
+        </div>
+      </article>
+
+      <!-- CASE 3 -->
+      <article class="case reveal">
+        <div class="media">
+          <div class="num">03</div>
+          <div class="ph"><span lang="en">Screenshot coming soon</span><span lang="pt">Print em breve</span></div>
+        </div>
+        <div class="body">
+          <div class="status"><span lang="en">Live</span><span lang="pt">No ar</span></div>
+          <h3><span lang="en">Synthetic audiences for media</span><span lang="pt">Audiência sintética para mídia</span></h3>
+          <dl>
+            <div><dt><span lang="en">Problem</span><span lang="pt">Problema</span></dt>
+              <dd><span lang="en">Knowing how different audiences would react to a creative or media plan before launch is slow and expensive.</span><span lang="pt">Saber como públicos diferentes reagiriam a um criativo ou plano de mídia antes de lançar é lento e caro.</span></dd></div>
+            <div><dt><span lang="en">What I built</span><span lang="pt">O que eu fiz</span></dt>
+              <dd><span lang="en">An agent that turns a piece of material (creative, product, news or media plan) into segmented audiences and simulates their reaction and sentiment, with A/B testing between assets. Personas are anchored in real data and every result is flagged as a simulation.</span><span lang="pt">Um agente que transforma um material (criativo, produto, notícia ou plano de mídia) em públicos segmentados e simula reação e sentimento, com teste A/B entre peças. As personas são ancoradas em dado real e todo resultado é sinalizado como simulação.</span></dd></div>
+          </dl>
+          <div class="tags"><span>Generative AI</span><span>Audience Insights</span><span>Media Strategy</span><span>Sentiment</span></div>
+        </div>
+      </article>
+
+      <!-- CASE 4 -->
+      <article class="case reveal">
+        <div class="media">
+          <div class="num">04</div>
+          <div class="ph"><span lang="en">Screenshot coming soon</span><span lang="pt">Print em breve</span></div>
+        </div>
+        <div class="body">
+          <div class="status wip"><span lang="en">Daily check running · alert agent in progress</span><span lang="pt">Checagem diária rodando · agente de alertas em construção</span></div>
+          <h3><span lang="en">Data health &amp; dashboard monitoring</span><span lang="pt">Saúde do dado e monitoramento de dashboards</span></h3>
+          <dl>
+            <div><dt><span lang="en">Problem</span><span lang="pt">Problema</span></dt>
+              <dd><span lang="en">People asked every day to reprocess the branding data because "data was missing", even when the dashboard itself had run fine.</span><span lang="pt">Todo dia alguém pedia reprocessamento da base de branding porque "faltava dado", mesmo quando o dashboard tinha rodado certo.</span></dd></div>
+            <div><dt><span lang="en">What I built</span><span lang="pt">O que eu fiz</span></dt>
+              <dd><span lang="en">Traced the gaps to their root cause at the source, by account and platform, and turned the diagnosis into a daily check. It's the foundation for an alerting agent that answers "is yesterday's data in?" before anyone asks for a rerun.</span><span lang="pt">Encontrei a causa das lacunas na origem, por conta e plataforma, e transformei o diagnóstico numa checagem diária. Ela é a base de um agente de alertas que responde "o dado de ontem entrou?" antes de alguém pedir reprocessamento.</span></dd></div>
+          </dl>
+          <div class="tags"><span>Data Quality</span><span>BigQuery</span><span>Root Cause Analysis</span><span>Monitoring</span></div>
+        </div>
+      </article>
+
+      <!-- CASE 5 -->
+      <article class="case reveal">
+        <div class="media">
+          <div class="num">05</div>
+          <div class="ph"><span lang="en">Screenshot coming soon</span><span lang="pt">Print em breve</span></div>
+        </div>
+        <div class="body">
+          <div class="status"><span lang="en">Running every week</span><span lang="pt">Rodando toda semana</span></div>
+          <h3><span lang="en">Weekly Drops, automated competitive intelligence</span><span lang="pt">Weekly Drops, inteligência competitiva automatizada</span></h3>
+          <dl>
+            <div><dt><span lang="en">Problem</span><span lang="pt">Problema</span></dt>
+              <dd><span lang="en">Keeping up with Natura &amp; Avon's competitors across 8 Latin American markets took hours of manual research.</span><span lang="pt">Acompanhar os concorrentes de Natura &amp; Avon em 8 mercados da América Latina exigia horas de pesquisa manual.</span></dd></div>
+            <div><dt><span lang="en">What I built</span><span lang="pt">O que eu fiz</span></dt>
+              <dd><span lang="en">An agent that researches the market every week and emails an executive report, posts a summary to the Teams channel and keeps the history in SharePoint, so each edition builds on the last four weeks.</span><span lang="pt">Um agente que pesquisa o mercado toda semana, envia um relatório executivo por e-mail, posta um resumo no canal do Teams e guarda o histórico no SharePoint, para cada edição considerar as últimas quatro semanas.</span></dd></div>
+          </dl>
+          <div class="tags"><span>Copilot Studio</span><span>Power Automate</span><span>SharePoint</span><span>Competitive Intelligence</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="padding-top:20px">
+  <div class="wrap">
+    <div class="kicker reveal"><span lang="en">Experience</span><span lang="pt">Experiência</span></div>
+    <h2>WPP Media</h2>
+    <div class="timeline">
+      <div class="job reveal">
+        <div class="when"><span lang="en">Mar 2026 – now</span><span lang="pt">mar 2026 – hoje</span></div>
+        <div>
+          <h3><span lang="en">Business Intelligence Analyst · Junior <small style="font-weight:500;color:var(--muted)">· Data Engineering &amp; AI</small></span><span lang="pt">Analista de BI Jr <small style="font-weight:500;color:var(--muted)">· Engenharia de Dados &amp; IA</small></span></h3>
+          <p><span lang="en">Data &amp; AI focal point for Hispanic Latin America media teams, also supporting Brazil: data pipelines and modeling in BigQuery/Dataform, data quality checks, data catalog and AI agents for Visa, Smart Fit and Natura &amp; Avon.</span><span lang="pt">Ponto focal de Dados &amp; IA para os times de mídia da América Latina hispânica, com apoio ao Brasil: pipelines e modelagem de dados em BigQuery/Dataform, checagens de qualidade, catálogo de dados e agentes de IA para Visa, Smart Fit e Natura &amp; Avon.</span></p>
+        </div>
+      </div>
+      <div class="job reveal">
+        <div class="when"><span lang="en">Jun 2025 – Mar 2026</span><span lang="pt">jun 2025 – mar 2026</span></div>
+        <div>
+          <h3><span lang="en">Business Intelligence Intern</span><span lang="pt">Estagiária de BI</span></h3>
+          <p><span lang="en">Looker Studio dashboards, data validation in Excel and Sheets, and automation of recurring reporting workflows.</span><span lang="pt">Dashboards em Looker Studio, validação de dados em Excel e Sheets e automação de relatórios recorrentes.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="education" style="padding-top:20px">
+  <div class="wrap">
+    <div class="kicker reveal"><span lang="en">Education</span><span lang="pt">Formação</span></div>
+    <h2><span lang="en">Always learning</span><span lang="pt">Sempre aprendendo</span></h2>
+    <div class="edu">
+      <div class="box reveal">
+        <h3><span lang="en">B.Sc. Computer Science</span><span lang="pt">Ciência da Computação</span></h3>
+        <div class="org">Universidade Anhembi Morumbi</div>
+        <div class="when"><span lang="en">2025 – expected 2029</span><span lang="pt">2025 – previsão 2029</span></div>
+      </div>
+      <div class="box reveal">
+        <h3><span lang="en">Data Analyst program</span><span lang="pt">Curso de Analista de Dados</span></h3>
+        <div class="org">Escola DNC</div>
+        <div class="when">2024 – 2025</div>
+        <ul>
+          <li><span lang="en">Data Analysis with Power BI</span><span lang="pt">Análise de Dados com Power BI</span></li>
+          <li><span lang="en">SQL for Data Analysis</span><span lang="pt">SQL para Análise de Dados</span></li>
+          <li><span lang="en">Data Analysis with Excel</span><span lang="pt">Análise de Dados com Excel</span></li>
+          <li><span lang="en">Intro to Regression Models</span><span lang="pt">Introdução a Modelos de Regressão</span></li>
+        </ul>
+      </div>
+      <div class="box reveal">
+        <h3><span lang="en">Languages</span><span lang="pt">Idiomas</span></h3>
+        <div class="lvl"><b><span lang="en">Portuguese</span><span lang="pt">Português</span></b><span><span lang="en">Native</span><span lang="pt">Nativo</span></span></div>
+        <div class="lvl"><b><span lang="en">English</span><span lang="pt">Inglês</span></b><span><span lang="en">Advanced</span><span lang="pt">Avançado</span></span></div>
+        <div class="lvl"><b><span lang="en">Spanish</span><span lang="pt">Espanhol</span></b><span><span lang="en">Intermediate<br><small>daily use with Hispanic LATAM teams</small></span><span lang="pt">Intermediário<br><small>uso diário com a LATAM hispânica</small></span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2><span lang="en">Let's talk</span><span lang="pt">Vamos conversar</span></h2>
+    <p style="max-width:560px;opacity:.9"><span lang="en">Open to conversations about data, AI and media. The best way to reach me is LinkedIn.</span><span lang="pt">Aberta a conversas sobre dados, IA e mídia. O melhor jeito de falar comigo é pelo LinkedIn.</span></p>
+    <div class="cta">
+      <a class="btn primary" href="https://www.linkedin.com/in/aryanemuniz-ai" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/AryaneMuniz" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="small"><span lang="en">Client data in these cases is not shown. Screenshots, when added, use masked or sample data.</span><span lang="pt">Os cases não mostram dado de cliente. Os prints, quando entrarem, usam dados mascarados ou fictícios.</span></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var html = document.documentElement;
+  function setLang(l){
+    html.lang = l;
+    document.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.lang === l); });
+    try{ localStorage.setItem('lang', l); }catch(e){}
+  }
+  var saved = null;
+  try{ saved = localStorage.getItem('lang'); }catch(e){}
+  if(!saved && (navigator.language || '').toLowerCase().indexOf('pt') === 0) saved = 'pt';
+  setLang(saved || 'en');
+  document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.dataset.lang); }); });
+})();
+
+/* MOTION */
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('in'); }); }
+  else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  }
+  var hero = document.querySelector('.hero');
+  if (hero && !reduce) hero.addEventListener('pointermove', function(ev){
+    var r = hero.getBoundingClientRect();
+    hero.style.setProperty('--mx', (ev.clientX - r.left) + 'px');
+    hero.style.setProperty('--my', (ev.clientY - r.top) + 'px');
+  });
+})();
+</script>
+</body>
+</html>
