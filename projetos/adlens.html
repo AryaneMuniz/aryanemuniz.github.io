@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>adlens, creative intelligence with CI/CD · Aryane Muniz</title>
+<meta name="description" content="Which creative features drive CTR, with the confidence of each answer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="../index.html">Aryane Muniz<b>.</b></a>
+    <nav class="nav">
+      <a href="../index.html#about"><span lang="en">About</span><span lang="pt">Sobre</span></a>
+      <a href="../projetos.html"><span lang="en">Projects</span><span lang="pt">Projetos</span></a>
+      <a href="../index.html#experience"><span lang="en">Experience</span><span lang="pt">Experiência</span></a>
+      <a href="../index.html#education"><span lang="en">Education</span><span lang="pt">Formação</span></a>
+      <a href="../index.html#contact"><span lang="en">Contact</span><span lang="pt">Contato</span></a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="hero page-hero" id="top">
+  <div class="spot"></div>
+  <div class="wrap">
+    <a class="crumb" href="../projetos.html">← <span lang="en">All projects</span><span lang="pt">Todos os projetos</span></a>
+    <div class="eyebrow" style="margin-top:18px">01 · <span lang="en">Data &amp; AI products</span><span lang="pt">Produtos de dados e IA</span></div>
+    <h1><span lang="en">adlens, creative intelligence with CI/CD</span><span lang="pt">adlens, inteligência de criativos com CI/CD</span></h1>
+    <p class="lead"><span lang="en">Which creative features drive CTR, with the confidence of each answer.</span><span lang="pt">Quais características dos criativos puxam o CTR, com a confiança de cada resposta.</span></p>
+  </div>
+</div>
+
+<section style="padding-top:48px">
+  <div class="wrap">
+    <div class="detail">
+      <div class="main">
+        <div class="shot reveal"><span lang="en">Screenshot coming soon</span><span lang="pt">Print em breve</span><img src="../img/adlens-hub.png" alt="adlens, inteligência de criativos com CI/CD" onerror="this.remove()"></div>
+        <div class="reveal"><h2><span lang="en">The problem</span><span lang="pt">O problema</span></h2><p><span lang="en">Media teams keep asking which creative features drive CTR, and paid tools send the creatives outside the company.</span><span lang="pt">Os times de mídia sempre perguntam quais características dos criativos puxam o CTR, e as ferramentas pagas mandam os criativos pra fora da empresa.</span></p></div>
+        <div class="reveal"><h2><span lang="en">What I built</span><span lang="pt">O que eu fiz</span></h2><p><span lang="en">An open-source Python tool that tags each creative (face, product, CTA, color, format) and measures how much each feature changes CTR, with 95% confidence intervals. Validated on synthetic data with planted effects, it ships a data contract ready for BigQuery, an MCP server for AI agents and a dashboard hub published automatically to GitHub Pages.</span><span lang="pt">Uma ferramenta em Python, de código aberto, que etiqueta cada criativo (rosto, produto, CTA, cor, formato) e mede quanto cada característica muda o CTR, com intervalo de 95%. Validada com dado sintético e efeitos plantados, entrega um contrato de dados pronto pro BigQuery, um servidor MCP para agentes de IA e um hub publicado sozinho no GitHub Pages.</span></p></div>
+        <div class="reveal"><h2><span lang="en">How it works</span><span lang="pt">Como funciona</span></h2>
+          <ol class="steps">
+            <li><span><span lang="en">Generates creatives and daily media with planted effects (the answer key).</span><span lang="pt">Gera criativos e mídia diária com efeitos plantados (o gabarito).</span></span></li>
+            <li><span><span lang="en">A tagger reads each creative: face, product, CTA, color and format.</span><span lang="pt">Um etiquetador lê cada criativo: rosto, produto, CTA, cor e formato.</span></span></li>
+            <li><span><span lang="en">Measures the lift of each feature on CTR, with a bootstrap 95% interval.</span><span lang="pt">Mede o lift de cada característica no CTR, com intervalo de 95% por bootstrap.</span></span></li>
+            <li><span><span lang="en">Exports two tables in a data contract ready for BigQuery.</span><span lang="pt">Exporta duas tabelas num contrato de dados pronto pro BigQuery.</span></span></li>
+            <li><span><span lang="en">Publishes a hub with tabs to GitHub Pages on every merge, and answers AI agents through MCP.</span><span lang="pt">Publica um hub com abas no GitHub Pages a cada merge e responde agentes de IA via MCP.</span></span></li>
+          </ol></div>
+        <div class="reveal"><h2><span lang="en">Engineering</span><span lang="pt">Engenharia</span></h2><p><span lang="en">116 automated tests, CI on every pull request, protected main branch and an audit against known statistical traps.</span><span lang="pt">116 testes automáticos, CI em todo pull request, main protegida e uma auditoria contra armadilhas estatísticas conhecidas.</span></p></div>
+      </div>
+      <aside class="side">
+        <div class="box"><h3><span lang="en">Status</span><span lang="pt">Status</span></h3><div class="status"><span lang="en">Live · updates itself on every merge</span><span lang="pt">No ar · se atualiza a cada merge</span></div></div>
+        <div class="box"><h3><span lang="en">Stack</span><span lang="pt">Tecnologias</span></h3><div class="tags"><span>Python</span><span>Statistics</span><span>DuckDB</span><span>MCP</span><span>GitHub Actions</span><span>CI/CD</span></div></div>
+        <div class="box"><h3><span lang="en">Links</span><span lang="pt">Links</span></h3><div class="cta" style="margin-top:0">
+            <a class="btn primary" href="https://aryanemuniz.github.io/adlens/" target="_blank" rel="noopener"><span lang="en">See the hub live</span><span lang="pt">Ver o hub ao vivo</span></a>
+            <a class="btn ghost" href="https://github.com/AryaneMuniz/adlens" target="_blank" rel="noopener"><span lang="en">Code</span><span lang="pt">Código</span></a>
+        </div></div>
+      </aside>
+    </div>
+    <nav class="next-prev" aria-label="Outros projetos">
+      <a href="weekly-drops.html">← <span lang="en">Weekly Drops, automated competitive intelligence</span><span lang="pt">Weekly Drops, inteligência competitiva automatizada</span></a>
+      <a href="hub-ia.html"><span lang="en">Project Hub with AI assistant &amp; BigQuery catalog</span><span lang="pt">Hub com assistente de IA e catálogo do BigQuery</span> →</a>
+    </nav>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2><span lang="en">Let's talk</span><span lang="pt">Vamos conversar</span></h2>
+    <p style="max-width:560px;opacity:.9"><span lang="en">Open to conversations about data, AI and media. The best way to reach me is LinkedIn.</span><span lang="pt">Aberta a conversas sobre dados, IA e mídia. O melhor jeito de falar comigo é pelo LinkedIn.</span></p>
+    <div class="cta">
+      <a class="btn primary" href="https://www.linkedin.com/in/aryanemuniz-ai" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/AryaneMuniz" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="small"><span lang="en">Client data in these cases is not shown. Screenshots, when added, use masked or sample data.</span><span lang="pt">Os cases não mostram dado de cliente. Os prints, quando entrarem, usam dados mascarados ou fictícios.</span></p>
+  </div>
+</footer>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects · Aryane Muniz</title>
+<meta name="description" content="Aryane Muniz — all projects in data engineering and AI, by theme.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="index.html">Aryane Muniz<b>.</b></a>
+    <nav class="nav">
+      <a href="index.html#about"><span lang="en">About</span><span lang="pt">Sobre</span></a>
+      <a href="projetos.html"><span lang="en">Projects</span><span lang="pt">Projetos</span></a>
+      <a href="index.html#experience"><span lang="en">Experience</span><span lang="pt">Experiência</span></a>
+      <a href="index.html#education"><span lang="en">Education</span><span lang="pt">Formação</span></a>
+      <a href="index.html#contact"><span lang="en">Contact</span><span lang="pt">Contato</span></a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="hero page-hero" id="top">
+  <div class="spot"></div>
+  <div class="wrap">
+    <a class="crumb" href="index.html">← <span lang="en">Home</span><span lang="pt">Início</span></a>
+    <div class="eyebrow" style="margin-top:18px"><span lang="en">Projects</span><span lang="pt">Projetos</span></div>
+    <h1><span lang="en">Everything I've <em>built</em></span><span lang="pt">Tudo o que eu <em>construí</em></span></h1>
+    <p class="lead"><span lang="en">Grouped by theme. Open any project to see how it works.</span><span lang="pt">Organizados por tema. Abra qualquer projeto pra ver como funciona.</span></p>
+  </div>
+</div>
+
+<section style="padding-top:48px">
+  <div class="wrap">
+    <div class="filters" role="group" aria-label="Filtrar por tema">
+      <button type="button" data-tema="todos" aria-pressed="true"><span lang="en">All</span><span lang="pt">Todos</span></button>
+      <button type="button" data-tema="produtos" aria-pressed="false"><span lang="en">Data &amp; AI products</span><span lang="pt">Produtos de dados e IA</span></button>
+      <button type="button" data-tema="agentes" aria-pressed="false"><span lang="en">AI agents</span><span lang="pt">Agentes de IA</span></button>
+      <button type="button" data-tema="qualidade" aria-pressed="false"><span lang="en">Data quality</span><span lang="pt">Qualidade de dados</span></button>
+    </div>
+
+    <section class="theme" data-tema="produtos" style="padding:0">
+      <div class="kicker reveal"><span lang="en">Data &amp; AI products</span><span lang="pt">Produtos de dados e IA</span></div>
+      <h2 class="reveal"><span lang="en">Data &amp; AI products</span><span lang="pt">Produtos de dados e IA</span></h2>
+      <p class="sub"><span lang="en">Tools that turn data into answers people use every day.</span><span lang="pt">Ferramentas que transformam dado em resposta para o dia a dia.</span></p>
+      <div class="grid">
+        <article class="pcard reveal" style="transition-delay:0ms">
+          <div class="thumb">
+            <div class="ph"></div>
+          <img src="img/adlens-hub.png" alt="adlens, inteligência de criativos com CI/CD" onerror="this.remove()">
+            <span class="num">01</span>
+          </div>
+          <div class="pbody">
+            <div class="status"><span lang="en">Live · updates itself on every merge</span><span lang="pt">No ar · se atualiza a cada merge</span></div>
+            <h3><span lang="en">adlens, creative intelligence with CI/CD</span><span lang="pt">adlens, inteligência de criativos com CI/CD</span></h3>
+            <p><span lang="en">Which creative features drive CTR, with the confidence of each answer.</span><span lang="pt">Quais características dos criativos puxam o CTR, com a confiança de cada resposta.</span></p>
+            <div class="tags"><span>Python</span><span>Statistics</span><span>DuckDB</span><span>MCP</span><span>GitHub Actions</span><span>CI/CD</span></div>
+            <a class="btn primary" href="projetos/adlens.html"><span lang="en">See more details</span><span lang="pt">Ver mais detalhes</span></a>
+          </div>
+        </article>
+        <article class="pcard reveal" style="transition-delay:60ms">
+          <div class="thumb">
+            <div class="ph"></div>
+          <img src="img/hub-ia.png" alt="Hub com assistente de IA e catálogo do BigQuery" onerror="this.remove()">
+            <span class="num">02</span>
+          </div>
+          <div class="pbody">
+            <div class="status wip"><span lang="en">Being adopted by the official team hub</span><span lang="pt">Sendo incorporado ao Hub oficial do time</span></div>
+            <h3><span lang="en">Project Hub with AI assistant &amp; BigQuery catalog</span><span lang="pt">Hub com assistente de IA e catálogo do BigQuery</span></h3>
+            <p><span lang="en">A navigable map of the data structure with an AI assistant built in.</span><span lang="pt">Um mapa navegável da estrutura de dados com um assistente de IA integrado.</span></p>
+            <div class="tags"><span>Generative AI</span><span>BigQuery</span><span>Data Cataloging</span><span>HTML/JS</span></div>
+            <a class="btn primary" href="projetos/hub-ia.html"><span lang="en">See more details</span><span lang="pt">Ver mais detalhes</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="theme" data-tema="agentes" style="padding:0">
+      <div class="kicker reveal"><span lang="en">AI agents</span><span lang="pt">Agentes de IA</span></div>
+      <h2 class="reveal"><span lang="en">AI agents</span><span lang="pt">Agentes de IA</span></h2>
+      <p class="sub"><span lang="en">Agents that take repetitive work off the team.</span><span lang="pt">Agentes que tiram trabalho repetitivo do time.</span></p>
+      <div class="grid">
+        <article class="pcard reveal" style="transition-delay:0ms">
+          <div class="thumb">
+            <div class="ph"></div>
+          <img src="img/dadinho.png" alt="Dadinho, agente de FAQ de dados" onerror="this.remove()">
+            <span class="num">03</span>
+          </div>
+          <div class="pbody">
+            <div class="status"><span lang="en">Live in Microsoft Teams</span><span lang="pt">No ar no Microsoft Teams</span></div>
+            <h3><span lang="en">Dadinho, data FAQ agent</span><span lang="pt">Dadinho, agente de FAQ de dados</span></h3>
+            <p><span lang="en">An agent in Teams that answers questions about media data sources.</span><span lang="pt">Um agente no Teams que responde dúvidas sobre as bases de mídia.</span></p>
+            <div class="tags"><span>Copilot Studio</span><span>Generative AI</span><span>Prompt Engineering</span><span>Teams</span></div>
+            <a class="btn primary" href="projetos/dadinho.html"><span lang="en">See more details</span><span lang="pt">Ver mais detalhes</span></a>
+          </div>
+        </article>
+        <article class="pcard reveal" style="transition-delay:60ms">
+          <div class="thumb">
+            <div class="ph"></div>
+          <img src="img/audiencia-sintetica.png" alt="Audiência sintética para mídia" onerror="this.remove()">
+            <span class="num">04</span>
+          </div>
+          <div class="pbody">
+            <div class="status"><span lang="en">Live</span><span lang="pt">No ar</span></div>
+            <h3><span lang="en">Synthetic audiences for media</span><span lang="pt">Audiência sintética para mídia</span></h3>
+            <p><span lang="en">Simulates how different audiences would react before launch.</span><span lang="pt">Simula como públicos diferentes reagiriam antes de lançar.</span></p>
+            <div class="tags"><span>Generative AI</span><span>Audience Insights</span><span>Media Strategy</span><span>Sentiment</span></div>
+            <a class="btn primary" href="projetos/audiencia-sintetica.html"><span lang="en">See more details</span><span lang="pt">Ver mais detalhes</span></a>
+          </div>
+        </article>
+        <article class="pcard reveal" style="transition-delay:120ms">
+          <div class="thumb">
+            <div class="ph"></div>
+          <img src="img/weekly-drops.png" alt="Weekly Drops, inteligência competitiva automatizada" onerror="this.remove()">
+            <span class="num">06</span>
+          </div>
+          <div class="pbody">
+            <div class="status"><span lang="en">Running every week</span><span lang="pt">Rodando toda semana</span></div>
+            <h3><span lang="en">Weekly Drops, automated competitive intelligence</span><span lang="pt">Weekly Drops, inteligência competitiva automatizada</span></h3>
+            <p><span lang="en">A weekly competitor report across 8 Latin American markets.</span><span lang="pt">Um relatório semanal de concorrência em 8 mercados da América Latina.</span></p>
+            <div class="tags"><span>Copilot Studio</span><span>Power Automate</span><span>SharePoint</span><span>Competitive Intelligence</span></div>
+            <a class="btn primary" href="projetos/weekly-drops.html"><span lang="en">See more details</span><span lang="pt">Ver mais detalhes</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="theme" data-tema="qualidade" style="padding:0">
+      <div class="kicker reveal"><span lang="en">Data quality</span><span lang="pt">Qualidade de dados</span></div>
+      <h2 class="reveal"><span lang="en">Data quality</span><span lang="pt">Qualidade de dados</span></h2>
+      <p class="sub"><span lang="en">Catching data issues before they reach the client.</span><span lang="pt">Pegar problema de dado antes que chegue no cliente.</span></p>
+      <div class="grid">
+        <article class="pcard reveal" style="transition-delay:0ms">
+          <div class="thumb">
+            <div class="ph"></div>
+          <img src="img/saude-do-dado.png" alt="Saúde do dado e monitoramento de dashboards" onerror="this.remove()">
+            <span class="num">05</span>
+          </div>
+          <div class="pbody">
+            <div class="status wip"><span lang="en">Daily check running · alert agent in progress</span><span lang="pt">Checagem diária rodando · agente de alertas em construção</span></div>
+            <h3><span lang="en">Data health &amp; dashboard monitoring</span><span lang="pt">Saúde do dado e monitoramento de dashboards</span></h3>
+            <p><span lang="en">Answers "is yesterday's data in?" before anyone asks for a rerun.</span><span lang="pt">Responde "o dado de ontem entrou?" antes de alguém pedir reprocessamento.</span></p>
+            <div class="tags"><span>Data Quality</span><span>BigQuery</span><span>Root Cause Analysis</span><span>Monitoring</span></div>
+            <a class="btn primary" href="projetos/saude-do-dado.html"><span lang="en">See more details</span><span lang="pt">Ver mais detalhes</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2><span lang="en">Let's talk</span><span lang="pt">Vamos conversar</span></h2>
+    <p style="max-width:560px;opacity:.9"><span lang="en">Open to conversations about data, AI and media. The best way to reach me is LinkedIn.</span><span lang="pt">Aberta a conversas sobre dados, IA e mídia. O melhor jeito de falar comigo é pelo LinkedIn.</span></p>
+    <div class="cta">
+      <a class="btn primary" href="https://www.linkedin.com/in/aryanemuniz-ai" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/AryaneMuniz" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="small"><span lang="en">Client data in these cases is not shown. Screenshots, when added, use masked or sample data.</span><span lang="pt">Os cases não mostram dado de cliente. Os prints, quando entrarem, usam dados mascarados ou fictícios.</span></p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
